@@ -3,6 +3,29 @@
     <head>
         <title>Currency Exchange</title>
         <script src="currency.js"></script>
+        <style>
+            .result {
+                width: 50%;
+                height: 5rem;
+                background-color: rgb(183, 243, 223);
+                border-radius: 16px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+            }
+        </style>
     </head>
-    <body></body>
+    <body>
+        <h5>this will load first</h5>
+
+        <div class="result"></div>
+
+        <form>
+            <input id="base" type="text" placeholder="Base Currency">
+            <input id="symbol" type="text" placeholder="Converted Currency">
+            <input type="submit" value="Convert">
+        </form>
+
+    </body>
 </html>
