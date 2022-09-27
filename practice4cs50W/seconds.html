@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Seconds</title>
+        <style>
+            body {
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+            h1, h2 {
+                text-align: center;
+
+            }
+            h2 {
+                font-size: 124px;
+            }
+        </style>
+        <script>
+
+            if (!localStorage.getItem('seconds')){
+                localStorage.setItem('seconds', 0)
+            }
+            
+            let seconds = localStorage.getItem('seconds')
+
+            function count(){
+                
+                seconds++
+                document.querySelector('h2').innerHTML = seconds
+                localStorage.setItem('seconds', seconds)
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                document.querySelector('h2').innerHTML = localStorage.getItem('seconds')
+                setInterval(count, 1000)
+            })
+
+        </script>
+    </head>
+    <body>
+        <h1>Look at the time fly</h1>
+        <h2>0</h2>
+    </body>
+</html>
