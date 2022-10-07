@@ -18,20 +18,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Send a GET request to the URL
       fetch(`https://api.apilayer.com/exchangerates_data/latest?symbols=${symbol}&base=${base}`, requestOptions)
+      
       // Put response into json form
       .then(response => response.json())
       .then(data => {
-          // Log data to the console
+        // check if the API has returned a valid object
+          if(data.rates == undefined){
+            document.querySelector('.result').innerHTML = data.error.code
+            return false
+          }
           const rate = data.rates[`${symbol}`]
-  
           document.querySelector('.result').innerHTML = `1 ${base} is worth ${rate.toFixed(3)} ${symbol}`
       });
 
     return false
-
-   
   }
-  
 });
 
 
